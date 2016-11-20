@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
  //dawa
+//minge
 
 public class main extends Application{
     public static void main(String argv[]){
