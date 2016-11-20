@@ -1,0 +1,37 @@
+
+import UserInterface.*;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
+/**
+ * Created by Sergiu on 10/25/2016.
+ */
+public class Main extends Application{
+    public static void main(String argv[]){
+        launch(argv);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        IRepository<Integer, Book> repository = new BookRepositoryFromFile("src/Data.txt", new BookValidator());
+        Controller controller = new Controller(repository);
+        BookDataModel model = new BookDataModel(repository);
+        BookView bookView = new BookView(model.getModel(), controller);
+        Parent parent = bookView.getView();
+        Scene scene = new Scene(parent,500,500);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Book Repository");
+        primaryStage.show();
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+
+            @Override
+            public void handle(WindowEvent event) {
+                repository.saveData();
+            }
+        });
+    }
+}
