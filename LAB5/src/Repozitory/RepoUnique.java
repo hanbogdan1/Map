@@ -3,9 +3,11 @@ package Repozitory;
 import Domain.UniqueById;
 import Exceptions.MyException;
 import Exceptions.Validator;
+import Utils.Observer;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Test on 10/22/2016.
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 public abstract class RepoUnique<T extends UniqueById<ID>,ID> implements iRepo<T,ID> {
     protected ArrayList<T> all;
     private Validator<T> validator;
+    private List<Observer<T>> observers = new ArrayList<>();
 
     public RepoUnique(Validator<T> validator){
         this.validator = validator;
@@ -59,6 +62,7 @@ public abstract class RepoUnique<T extends UniqueById<ID>,ID> implements iRepo<T
         if (idExists(e.get_id()) || validator.verify(e)==false)
             throw new MyException("Id duplicat la adaugare ");
         all.add(e);
+        notifyObservers();
         doSave();
     }
 
@@ -76,7 +80,12 @@ public abstract class RepoUnique<T extends UniqueById<ID>,ID> implements iRepo<T
     public T remove(T e) throws MyException {
         if (idExists(e.get_id())==false)
             throw new MyException("Se incearca stergerea unui element inexistene ");
-        else return all.remove(all.indexOf(e));
+        else {
+         T a=all.remove(all.indexOf(e));
+         notifyObservers();
+         return a;
+        }
+        
     }
 
     @Override
@@ -92,9 +101,30 @@ public abstract class RepoUnique<T extends UniqueById<ID>,ID> implements iRepo<T
        // T ret = e;
         all.set(getPosById(e.get_id()), e);
         doSave();
+        notifyObservers();
         return e;
     }
 
     @Override
     public ArrayList<T> getAll(){return all;}
+    
+    
+    
+    public void addObserver(Observer<T> o) {
+        System.out.println("Add observer"+o.getClass());
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer<T> o) {
+        System.out.println("Remove observer"+o.getClass());
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers){
+            o.update(this);
+        }
+    }
 }

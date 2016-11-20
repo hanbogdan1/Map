@@ -18,6 +18,7 @@ public class Controller {
     private iRepo<post,Integer> _post;
     private iRepo<sarcina,Integer> _sarcinai;
     private iRepo<Contract,Integer> _rel;
+    
     private String fNamesarcina = "sarcina.txt";
     private String fNamepostSer = "post.txt";
     private List<post> listPartPost;
@@ -32,7 +33,7 @@ public class Controller {
     	_post = new RepoPostSer(fNamepostSer,vf);
         _rel = new RepoRelMemory(vContract);
         listPartPost = new ArrayList<>();
-        listPartSarcina = new ArrayList<>();
+        listPartSarcina = new ArrayList<>();	
     }
 
     public void saveAll(){
@@ -47,7 +48,7 @@ public class Controller {
         }
     }
 
-    //sarcina
+    
 
     public void addsarcina(Integer id,String descriere,Integer durata) throws MyException{
         //sarcina c = new sarcina(id,descriere);
