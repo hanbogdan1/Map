@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace lab1cSharp.Domain
 {
-    class FisaPost : hasId<int>
+   public class FisaPost : hasId<int>
     {
         private post p;
         private sarcina s;
-        public FisaPost(post Post, sarcina Sarcina) : base() {
+        public FisaPost(int Id,post Post, sarcina Sarcina) : base() {
             p = Post;
+            id = Id;
             s = Sarcina;
         }
 
@@ -21,7 +22,7 @@ namespace lab1cSharp.Domain
 
         public override string ToString()
         {
-            return p.ToString() + s.ToString();
+            return id +p.ToString() + s.ToString();
         }
 
 

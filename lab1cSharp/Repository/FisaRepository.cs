@@ -5,13 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+    
 namespace lab1cSharp.Repository
 {
-    class FisaRepository : AbstractRepository<int, FisaPost>
+    public class FisaRepository : AbstractRepository<int, FisaPost>
     {
         private String fname;
-
         FisaRepository(string fnamee):base()
         {
             fname = fnamee;
@@ -30,14 +29,14 @@ namespace lab1cSharp.Repository
                 String[] toke = line.Split(',');
                 if (toke.Length != 3)
                     throw new MyException("Fisier corupt!");
-
-                post p = new post(int.Parse(toke[0]), toke[1], toke[2]);
+                int id = int.Parse(toke[0]);
+                post p = new post(int.Parse(toke[1]), toke[2], toke[3]);
 
                 if (toke.Length != 2)
                     throw new MyException("Fisier corupt!");
                 
                 sarcina z = new sarcina(int.Parse(toke[0]), toke[1]);
-                    add(new FisaPost(p,z));
+                    add(new FisaPost(id,p,z));
                 
 
             }
@@ -59,5 +58,6 @@ namespace lab1cSharp.Repository
 
             sr.Close();
         }
+
     }
 }

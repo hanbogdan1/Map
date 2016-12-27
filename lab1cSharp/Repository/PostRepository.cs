@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lab1cSharp.Repository
 {
-    class PostRepository : AbstractRepository<int, post>
+    public class PostRepository : AbstractRepository<int, post>
     {
         private String fname;
 

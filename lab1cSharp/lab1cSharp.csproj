@@ -51,6 +51,7 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\PostRepository.cs" />
     <Compile Include="Repository\SarcinaRepository.cs" />
+    <Compile Include="Ui\ui.cs" />
     <Compile Include="Validatori\ValidatorPost.cs" />
     <Compile Include="Domain\hasId.cs" />
     <Compile Include="Validatori\MyException.cs" />
