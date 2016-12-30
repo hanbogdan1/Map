@@ -8,7 +8,7 @@ using lab1cSharp.Domain;
 
 namespace lab1cSharp.Controller
 {
-    public class Controller
+    public class ControllerFinal
     {
         private PostRepository PostRepo;
         private SarcinaRepository SarcinaRepo;
@@ -16,7 +16,7 @@ namespace lab1cSharp.Controller
         private ValidatorPost postVal;
         private ValidatorSarcina sarcinaVal;
 
-        public Controller(PostRepository PostRep,SarcinaRepository SarcinaRep,FisaRepository FisaRep)
+        public ControllerFinal(PostRepository PostRep,SarcinaRepository SarcinaRep,FisaRepository FisaRep)
         {
             PostRepo = PostRep;
             SarcinaRepo = SarcinaRep;
@@ -25,7 +25,7 @@ namespace lab1cSharp.Controller
             sarcinaVal = new ValidatorSarcina();
         }
 
-        void add_post(string denumire,string tip, int id)
+        public void add_post(string denumire,string tip, int id)
         {
             post p = new post(id, denumire, tip);
             postVal.validate(p);
@@ -33,19 +33,19 @@ namespace lab1cSharp.Controller
         }
 
 
-        void update_post(string denumire, string tip, int id)
+        public void update_post(string denumire, string tip, int id)
         {
             post p = new post(id, denumire, tip);
             postVal.validate(p);
             PostRepo.update(id, p);
         }
 
-        void delete_post(int id)
+        public void delete_post(int id)
         {
             PostRepo.delete(id);
         }
-        
-        void afisare_posturi()
+
+        public void afisare_posturi()
         {
             foreach(post t in PostRepo.getAll())
             {
@@ -56,7 +56,7 @@ namespace lab1cSharp.Controller
 
 
 
-        void add_sarcina(string descriere, int id)
+        public void add_sarcina(string descriere, int id)
         {
             sarcina p = new sarcina(id,descriere);
             sarcinaVal.validate(p);
@@ -64,19 +64,19 @@ namespace lab1cSharp.Controller
         }
 
 
-        void update_sarcina(string descriere,  int id)
+        public void update_sarcina(string descriere,  int id)
         {
             sarcina p = new sarcina(id, descriere);
             sarcinaVal.validate(p);
             SarcinaRepo.update(id,p);
         }
 
-        void delete_sarcina(int id)
+        public void delete_sarcina(int id)
         {
             SarcinaRepo.delete(id);
         }
 
-        void afisare_sarcina()
+        public void afisare_sarcina()
         {
             foreach (sarcina t in SarcinaRepo.getAll())
             {
@@ -88,7 +88,7 @@ namespace lab1cSharp.Controller
 
 
 
-        void add_fisa(int id,int id_post, int id_sarcina)
+        public void add_fisa(int id,int id_post, int id_sarcina)
         {
             post p = PostRepo.getAll().Find(new Predicate<post>(  aa => aa.id == id_post));
             if (p == null)
@@ -100,13 +100,13 @@ namespace lab1cSharp.Controller
             FisaRepo.add(new FisaPost(id,p, x));
 
         }
-        void delete_fisa(int id)
+        public void delete_fisa(int id)
         {
             FisaRepo.delete(id);
             
         }
 
-        void update_fisa(int id, int id_s,int id_p)
+        public void update_fisa(int id, int id_s,int id_p)
         {
             post p = PostRepo.getAll().Find(new Predicate<post>(aa => aa.id == id_p));
             if (p == null)
@@ -118,7 +118,7 @@ namespace lab1cSharp.Controller
             FisaRepo.add(new FisaPost(id, p, x));
         }
 
-        void afisare_fisa()
+        public void afisare_fisa()
         {
             foreach (FisaPost t in FisaRepo.getAll())
             {

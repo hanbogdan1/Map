@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\ControllerFinal.cs" />
     <Compile Include="Domain\FisaPost.cs" />
     <Compile Include="Repository\AbstractRepository.cs" />
     <Compile Include="Repository\FisaRepository.cs" />
@@ -51,7 +51,7 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\PostRepository.cs" />
     <Compile Include="Repository\SarcinaRepository.cs" />
-    <Compile Include="Ui\ui.cs" />
+    <Compile Include="UserInterface\Ui.cs" />
     <Compile Include="Validatori\ValidatorPost.cs" />
     <Compile Include="Domain\hasId.cs" />
     <Compile Include="Validatori\MyException.cs" />
