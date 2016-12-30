@@ -24,7 +24,7 @@ namespace lab1cSharp.Domain
 
         public override string ToString()
         {
-            return base.ToString() + " " + _descriere;
+            return base.ToString() + " " + _descriere.PadRight(15);
         }
 
         public override bool Equals(object obj)
@@ -39,7 +39,7 @@ namespace lab1cSharp.Domain
 
         public string export(string separator)
         {
-            return id.ToString() + separator +descriere;
+            return id.ToString() + separator +descriere+separator;
         }
 
     }

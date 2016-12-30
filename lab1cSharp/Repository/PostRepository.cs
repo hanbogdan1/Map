@@ -10,12 +10,11 @@ namespace lab1cSharp.Repository
 {
     public class PostRepository : AbstractRepository<int, post>
     {
-        private String fname;
+   
 
-        public PostRepository(string fnamee):base()
+        public PostRepository(string fnamee):base(fnamee)
         {
-            fname = fnamee;
-            LoadFromFile();
+       
         }
 
         public override void LoadFromFile()
@@ -25,10 +24,10 @@ namespace lab1cSharp.Repository
             {
                 String line = sr.ReadLine();
                 String[] toke = line.Split(',');
-                if (toke.Length == 3)
+                if (toke.Length == 4)
                 {
                     post p = new post(int.Parse(toke[0]), toke[1], toke[2]);
-                    add(p);
+                    items.Add(p);
                 }
 
             }

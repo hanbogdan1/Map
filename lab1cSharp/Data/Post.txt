@@ -1,1 +1,5 @@
-﻿
+﻿31,mercenar,fulltime,
+551,vanzator,fulltime,
+21,mercenar,parttime,
+94,mafiot,parttime,
+41,matematician,fulltime,

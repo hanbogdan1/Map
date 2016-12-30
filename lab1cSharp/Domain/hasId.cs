@@ -30,7 +30,7 @@ namespace lab1cSharp.Domain
 
         public override string ToString()
         {
-            return _id.ToString();
+            return _id.ToString().PadRight(5);
         }
 
     }

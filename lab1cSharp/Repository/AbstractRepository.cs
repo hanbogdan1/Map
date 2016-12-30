@@ -10,10 +10,13 @@ namespace lab1cSharp.Repository
     public abstract class AbstractRepository<ID,T> : IRepository<ID, T> where T : hasId<ID>
                                                                   where ID : IComparable<ID>
     {
-        private List<T> items;
-        public AbstractRepository()
+        protected List<T> items;
+        protected string fname;
+        public AbstractRepository(string fName)
         {
+            fname = fName;
             items = new List<T>();
+            LoadFromFile();
         }
         public void add(T item)
         {
@@ -21,6 +24,7 @@ namespace lab1cSharp.Repository
                 items.Add(item);
             else
                 throw new MyException("Exista deja un element cu id " + item.id.ToString() + " in lista ! ");
+            WriteToFile();
         }
 
         public T delete(ID key)
@@ -29,6 +33,7 @@ namespace lab1cSharp.Repository
             if (element != null)
             {
                 items.Remove(element);
+                WriteToFile();
                 return element;
             }
             else
@@ -58,6 +63,7 @@ namespace lab1cSharp.Repository
         {
             delete(key);
             add(newItem);
+            WriteToFile();
 
         }
 

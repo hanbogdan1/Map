@@ -31,7 +31,7 @@ namespace lab1cSharp.Domain
         }
         public override string ToString()
         {
-            return base.ToString() + " " +" "+_tip+" "+ _denumire;
+            return base.ToString() + " " +_tip.PadRight(15)+" "+ _denumire.PadRight(15);
         }
 
         public override bool Equals(object obj)
@@ -45,7 +45,7 @@ namespace lab1cSharp.Domain
         }
 
         public string export(string separator){
-            return id.ToString() + separator + denumire + separator + tip;
+            return id.ToString() + separator + denumire + separator + tip+separator;
         }
     }
 }

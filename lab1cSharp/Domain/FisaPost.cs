@@ -22,7 +22,7 @@ namespace lab1cSharp.Domain
 
         public override string ToString()
         {
-            return id +p.ToString() + s.ToString();
+            return id.ToString().PadRight(5)+" " +p.ToString() + s.ToString();
         }
 
 
@@ -41,7 +41,7 @@ namespace lab1cSharp.Domain
 
         public string export(string separator)
         {
-            return p.export(separator) + s.export(separator);
+            return id.ToString()+separator+  p.export(separator)+s.export(separator);
         }
     }
 }

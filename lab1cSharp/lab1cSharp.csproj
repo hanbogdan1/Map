@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Controller\ControllerFinal.cs" />
     <Compile Include="Domain\FisaPost.cs" />
+    <Compile Include="Domain\PostComparer.cs" />
+    <Compile Include="Domain\SarcinaComparer.cs" />
     <Compile Include="Repository\AbstractRepository.cs" />
     <Compile Include="Repository\FisaRepository.cs" />
     <Compile Include="Repository\FisaPostRepository.cs" />

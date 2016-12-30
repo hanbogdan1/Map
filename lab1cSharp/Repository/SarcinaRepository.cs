@@ -10,12 +10,11 @@ namespace lab1cSharp.Repository
 {
     public class SarcinaRepository : AbstractRepository<int, sarcina>
     {
-        private String fname;
+   
 
-        public SarcinaRepository( string fnamee):base()
+        public SarcinaRepository( string fnamee):base(fnamee)
         {
-            fname = fnamee;
-            LoadFromFile();
+         
         }
 
         public override void LoadFromFile()
@@ -28,7 +27,7 @@ namespace lab1cSharp.Repository
                 if (toke.Length == 2)
                 {
                     sarcina p = new sarcina(int.Parse(toke[0]), toke[1]);
-                    add(p);
+                    items.Add(p);
                 }
 
             }
