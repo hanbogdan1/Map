@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using lab1cSharp.Controller;
+using lab1cSharp.Repository;
+using lab1cSharp.UserInterface;
 
 namespace lab1cSharp
 {
@@ -11,33 +14,12 @@ namespace lab1cSharp
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("HEllo world!");
-            //List<hasId<int>> ceva = new List<hasId<int>>();
-            //ceva.Add(new post(3, "denumire", "tip"));
-            //ceva.Add(new sarcina(21, "dee"));
-            //ceva.Add(new post(3, "denumire2", "fulltime"));
-            //ceva.Add(new sarcina(21, ""));
-            //foreach (hasId<int> a in ceva)
-            //{
-            //    Console.WriteLine(a);
-            //}
-
-            //ValidatorPost pval = new ValidatorPost();
-            //ValidatorSarcina sval = new ValidatorSarcina();
-            //try
-            //{
-            //    pval.validate((post)ceva[2]);
-            //    pval.validate((post)ceva[0]);
-            //    sval.validate((sarcina)ceva[1]);
-            //    sval.validate((sarcina)ceva[3]);
-            //}
-            //catch (MyException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
-
-
-
+            PostRepository PostRep = new PostRepository(@"..\..\Data\Post.txt");
+            SarcinaRepository SarcinaRep = new SarcinaRepository(@"..\..\Data\Sarcina.txt");
+            FisaRepository FisaRep = new FisaRepository(@"..\..\Data\Fisa.txt");
+            ControllerFinal ctrl = new ControllerFinal(PostRep, SarcinaRep, FisaRep);
+            Ui UserInterf = new Ui(ctrl);
+            UserInterf.start();
         }
     }
 

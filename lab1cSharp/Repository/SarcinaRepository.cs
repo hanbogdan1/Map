@@ -12,7 +12,7 @@ namespace lab1cSharp.Repository
     {
         private String fname;
 
-        SarcinaRepository( string fnamee):base()
+        public SarcinaRepository( string fnamee):base()
         {
             fname = fnamee;
             LoadFromFile();

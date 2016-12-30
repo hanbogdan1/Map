@@ -35,7 +35,7 @@ namespace lab1cSharp.UserInterface
             Console.WriteLine("0-EXIT!");            
         }
 
-        void start()
+        public void start()
         {
             int comanda =-1;
             while (comanda != 0) {

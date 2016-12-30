@@ -12,7 +12,7 @@ namespace lab1cSharp.Repository
     {
         private String fname;
 
-        PostRepository(string fnamee):base()
+        public PostRepository(string fnamee):base()
         {
             fname = fnamee;
             LoadFromFile();

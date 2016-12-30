@@ -11,7 +11,7 @@ namespace lab1cSharp.Repository
     public class FisaRepository : AbstractRepository<int, FisaPost>
     {
         private String fname;
-        FisaRepository(string fnamee):base()
+       public FisaRepository(string fnamee):base()
         {
             fname = fnamee;
             LoadFromFile();
@@ -22,7 +22,7 @@ namespace lab1cSharp.Repository
             StreamReader sr = new StreamReader(fname);
             while (!sr.EndOfStream)
             {
-                if (File.ReadLines(@"..\..\Data\Fisa.txt").Count() % 2 == 1)
+                if (File.ReadLines(fname).Count() % 2 == 1)
                     throw new MyException("FIsier corupt ! ");
                
                 String line = sr.ReadLine();
