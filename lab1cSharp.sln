@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab1cSharp", "lab1cSharp\lab1cSharp.csproj", "{84530EE7-92E0-485B-BAE1-415551B57BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConenctionUtills", "ConenctionUtills\ConenctionUtills.csproj", "{EECCC30B-60D7-4B92-A9DC-B23D2A4DD8D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{84530EE7-92E0-485B-BAE1-415551B57BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84530EE7-92E0-485B-BAE1-415551B57BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84530EE7-92E0-485B-BAE1-415551B57BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECCC30B-60D7-4B92-A9DC-B23D2A4DD8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECCC30B-60D7-4B92-A9DC-B23D2A4DD8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECCC30B-60D7-4B92-A9DC-B23D2A4DD8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECCC30B-60D7-4B92-A9DC-B23D2A4DD8D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

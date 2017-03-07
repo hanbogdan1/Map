@@ -1,6 +1,7 @@
-﻿1,asd
-21,spalat vase
-3,mafiot
-6,mananca
-9,degeaba
-2,akakka
+1,asd,
+21,spalat vase,
+3,mafiot,
+6,mananca,
+9,degeaba,
+2,akakka,
+34,profesor,
